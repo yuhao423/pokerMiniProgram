@@ -1,0 +1,81 @@
+<view class="container">
+<!-- <image src="../../common/images/bg-629eadeb.jpg" mode=""/> -->
+<image src="../../common/images/111.png" class="page"></image>
+  <view class="iconlist" style="top: {{menuTop}}px;" bindtap="toHistory">
+  <icon class="iconfont icon-caidan--kuai"></icon>
+</view>
+
+  <view class="touxiang">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"  plain="true" >
+  <image class="avatar" src="{{userInfo.avatar}}"></image>
+</button> 
+  </view>
+
+<view class="ipt">
+    <input type="nickname" class="weui-input" bindnicknamereview="bindKeyInput" placeholder="请输入昵称" value="{{userInfo.nickname}}" bindblur="cahngenickname"/>
+</view>
+
+<view class="recommend">
+<text class="text">建议修改为微信头像昵称</text>
+</view>
+
+<view class="create">
+<button type="primary" class="createBtn" bindtap="putRoom">创建房间</button>
+</view>
+
+<view class="instructions">
+<!-- <button>使用说明</button> -->
+<text class="useinfo" bindtap="open">使用说明</text>
+<mp-half-screen-dialog 
+  bindbuttontap="buttontap"
+  show="{{show}}"
+  maskClosable="{{true}}"
+  >
+  //标题
+  <view slot="title"> 
+  使用说明 
+  <view slot="subTitle" style="font-size: 20rpx;color:rgb(112, 112, 112);">{{step[index]}} </view>
+  </view>
+  <view slot="desc">
+  <swiper style="height: 520rpx; width: 100%; " indicator-dots indicator-color="rgb(220, 226, 249)" indicator-active-color="rgb(68, 106, 223)" current="{{index}}" bindchange="changeIndex">
+    <swiper-item wx:for="{{4}}" wx:key="item">
+      <image src="/common/images/link-01.png" mode=""/>
+    </swiper-item>
+  </swiper>  
+  </view>
+<view slot="footer" style="display: none;"></view>
+
+</mp-half-screen-dialog>
+</view>
+
+<view class="weui-footer weui-footer_fixed-bottom">
+
+<view class="weui-footer__links">
+
+  <navigator url="" class="weui-footer__link">Yuuu</navigator>
+
+</view>
+
+<view class="weui-footer__text">Copyright © 2018-2023 yuuu.io</view>
+
+<view class="weui-footer__text">备案号：粤B2-20090059</view>
+</view>
+
+<view class="">
+<button  class="btn"style="position: absolute;left: 0;top:80%;color: #fff;background-color:rgb(74, 107, 223);width: 210rpx;height:80rpx;font-size: 28rpx;text-align: left;border: none;" bindtap="show">鼓励一下</button>
+</view>
+
+<view wx:if="{{showPopup}}" class="popup" data-out="out" bindtap="hide">
+  <view class="popup-inner" data-yu="yu">
+    <view class="popup-title">{{title}}
+    </view>
+    <view class="popup-name">为维持小程序的正常运转</view>
+    <view class="popup-name">请观看广告支持作者</view>
+    <view class="popup-name last">v50请我吃麦当当</view>
+    <button class="watch" bindtap="watch">观看广告</button>
+    <button class="close" bindtap="close">关闭</button>
+  </view>
+</view>
+
+</view>
+

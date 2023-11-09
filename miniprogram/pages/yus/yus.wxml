@@ -1,0 +1,29 @@
+<!--pages/yus.wxml-->
+<view class="room-top">
+<view class="room-top-avatar">
+  <avatar size="70px" src="{{url}}" round></avatar>
+</view>
+
+<view class="room-top-content">
+<view><text class="nickname">23\n</text><text class="welcome">欢迎使用，祝你玩的开心~</text></view>
+<view><view class="room-top-main-center">个人中心</view></view>
+</view>
+</view>
+<view class="room-point" bindtap="testMessage">
+  <view class="my-point">
+    <view class="my-point-number">
+      <view style="color: #fff;font-size: 18px;padding-left: 20px;padding-top: 20px;font-weight: 500;">我的积分</view>
+      <view style="color: #fff;font-size: 34px;padding-left: 20px;padding-top: 10px;font-weight: 600;">-28</view>
+    </view>
+    <view class="my-point-reflash">
+      <!-- <avatar size="40px" src="/miniprogram/common/images/问号.png" round></avatar> -->
+      <view class="reflash-view">
+        <image  class="reflash-img" src="../../common/images/刷新.png"  mode=""/>
+      </view>
+    </view>
+  </view>
+  <view class="point-buttom">
+  <view style="padding-left: 20px;">我的排名：2</view>
+  <view style="padding-right: 34px;">积分明细></view>
+  </view>
+</view>

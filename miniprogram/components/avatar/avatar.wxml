@@ -1,0 +1,6 @@
+<!--components/avatar.wxml-->
+<view>
+  <view class="yuavatar" style="width: {{size}}; height: {{size}};border-radius: 50%;background-image: url('{{src}}'); background-size: cover; background-position: center;">
+</view> 
+<!-- open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"  plain="true" -->
+</view>

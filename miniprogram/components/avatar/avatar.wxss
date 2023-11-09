@@ -1,0 +1,7 @@
+.yuavatar{
+  display: inline-block;  
+  vertical-align: middle;  
+  background-repeat: no-repeat; 
+  box-shadow: 1px 5px 6px 0px rgba(158, 158, 158, 0.76);
+}
+button[plain]{ border:0 }

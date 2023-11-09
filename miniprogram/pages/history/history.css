@@ -1,0 +1,157 @@
+@charset "UTF-8";
+.bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -999;
+}
+
+button[plain] {
+  border: 0;
+}
+
+.history-top {
+  height: 270px;
+  width: 100%;
+  padding-top: 20%;
+}
+
+.history-top .one {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.history-top .one .avatar {
+  height: 120px;
+  width: 120px;
+  margin: auto;
+  padding-top: 15px;
+}
+
+.history-top .one .avatar .historyButton {
+  height: 120px;
+  width: 120px !important;
+  border-radius: 50%;
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 10px solid transparent;
+}
+
+.history-top .one .avatar .historyButton .historyAvatar {
+  height: 85px;
+  width: 85px !important;
+  border-radius: 50%;
+  z-index: 9;
+  margin-left: -7px;
+  margin-top: 5px;
+  box-shadow: 1px 5px 6px 0px rgba(158, 158, 158, 0.76);
+}
+
+.history-top .one .nickname {
+  height: 80px;
+}
+
+.history-top .one .nickname .nickname-content {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.history-top .two {
+  height: 70px;
+  margin-top: -12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history-top .two .two-gold {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+.history-top .two .two-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  /* 这里可以自定义线的宽度 */
+  height: 35px;
+  /* 这里可以自定义线的高度，使其短于盒子的高度 */
+  background-color: #cccccc;
+  /* 这里可以自定义线的颜色 */
+  transform: translateY(30%);
+  /* 使线垂直居中 */
+}
+
+.history-top .two .two-history {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.history-content .round-top {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.history-content .round-bottom {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.history-end .update-record {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.history-end .black-mode {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.goldClass {
+  /* 半透明黑色背景 */
+  z-index: 9999;
+  /* 确保遮罩层位于其他元素之上 */
+}
+
+.goldClass .weui-half-screen-dialog__ft {
+  display: none;
+}
+
+.goldClass button::after {
+  border: none;
+}
+
+.detail {
+  z-index: 999999;
+}
+
+.van-cell:after {
+  border-bottom: none !important;
+  border-bottom-style: none !important;
+}
+
+.weui-half-screen-dialog__hd {
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 半透明黑色背景 */
+  z-index: 999;
+  /* 确保遮罩层位于其他元素之上 */
+}

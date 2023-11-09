@@ -1,0 +1,172 @@
+<view>
+
+  <image class="bg" src="../../common/images/111.png" mode="aspectFill"></image>
+
+
+<view class="history-top">
+<view class="one">
+  <view class="avatar">
+      <button class="historyButton" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar" plain="true" >
+      <image class="historyAvatar" src="{{a}}" ></image>
+      </button> 
+  </view>
+  <view class="nickname">
+    <text class="nickname-content">yuyuy</text>
+  </view>
+</view>
+<view  class="two">
+<view class="two-gold" bindtap="getGold">
+  <view style="font-size: 21px;font-weight: 500;">0</view>
+  <view style="font-size: 14px;color:#ccc;">
+    <view style="width: 100%;position: relative;">金币
+    <icon class="iconfont icon-wenhao" style="position: absolute;left: 32px;top: -6px;"/>
+    </view>
+  </view>
+</view>
+<view class="two-history" bindtap="getHistoryRecord">
+  <view style="font-size: 21px;font-weight: 500;">0</view>
+  <view style="font-size: 14px;color:#ccc;">
+    <view style="width: 100%;position: relative;">历史记录
+    <mp-icon style="position:absolute;left: 60px;top: -0.5px;" icon="arrow" color="#ccc" size="{{11}}"></mp-icon>
+    </view>
+  </view>
+</view>
+
+</view>
+</view>
+
+<view class="history-content">
+<van-cell-group inset style="width: 90%;">
+    <van-cell custom-class="round-top" size="large" title="头像" center title-style="font-size:16px;font-weight:600">
+      <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+      <view style="display: flex;justify-content: flex-end;">
+        <button style="border: 1px solid #fff;width: 60px;height: 45px;margin-right: -5%;display: flex;align-items: center;justify-content: center;" plain open-type="chooseAvatar" bindchooseavatar="setHead">
+          <image style="width: 30px;height: 30px;  border-radius: 50%;box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);" src="{{userAvatar}}" mode="aspectFill"></image>
+        </button>
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+    <van-cell size="large"  custom-class="round-bottom"  title="昵称" center title-style="font-size:16px;font-weight:600">
+         <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+         <!-- 通过 class-prefix 指定类名为 my-icon -->
+    <!-- <van-icon class-prefix="icon-icon-geren" name="extra" /> -->
+      <view style="display: flex;justify-content: flex-end;">
+        <input style="color: rgb(0, 0, 0);padding-right: 5%;height: 40px;" class="input-style" placeholder="请输入昵称" type="nickname" value="{{userName}}" bindblur="setName" />
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+
+  </van-cell-group>
+
+  
+</view>
+
+<view style="margin-top: 20px;" class="history-end">
+  <van-cell-group inset >
+    <van-cell size="large"  custom-class="round-bottom update-record"  title="更新记录" center title-style="font-size:16px;font-weight:600">
+         <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+      <view style="display: flex;justify-content: flex-end;height: 40px;">
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+    <van-cell size="large"  custom-class="round-bottom about-us"  title="关于我们" center title-style="font-size:16px;font-weight:600">
+         <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+      <view style="display: flex;justify-content: flex-end;height: 40px;">
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+    <van-cell size="large"  custom-class="round-bottom Disclaimers"  title="免责声明" center title-style="font-size:16px;font-weight:600">
+         <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+      <view style="display: flex;justify-content: flex-end;height: 40px;">
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+    <van-cell size="large"  custom-class="round-bottom black-mode"  title="暗黑模式" center title-style="font-size:16px;font-weight:600">
+         <van-icon slot="icon" size="20px" name="search" class="custom-icon" />
+      <view style="display: flex;justify-content: flex-end;height: 40px;">
+        <van-icon name="arrow" />
+      </view>
+    </van-cell>
+  </van-cell-group>
+ 
+</view>
+
+<view class="weui-footer weui-footer_fixed-bottom">
+
+<view class="weui-footer__links">
+
+  <navigator url="" class="weui-footer__link">Yuuu</navigator>
+
+</view>
+
+<view class="weui-footer__text">Copyright © 2018-2023 yuuu.io</view>
+
+<view class="weui-footer__text">备案号：粤B2-20090059</view>
+</view>
+
+<!-- //gold mp-half-screen-dialog -->
+
+  <mp-half-screen-dialog
+  bindbuttontap="buttontap"
+  show="{{showGold}}"
+  maskClosable="{{true}}" 
+  extClass="{{showOverlay ? 'goldClass overlay':'goldClass'}}"
+  >
+  
+  <view slot="title">金币   
+    <text style="position: absolute;right: 0px;top: 21px;color:rgb(64, 108, 232);" bindtap="getGoldDetail">明细</text>
+  </view>
+  <view slot="desc">
+    <view style="height: 100rpx;text-align: center;padding-right:30px;margin-top: 20px;font-size: 45px;line-height: 100rpx;position: relative;font-weight: 600;">
+    0
+    <image src="../../common/images/coin.png" style="height: 25px;width: 25px;position: absolute;left: 50%;top: 22px;" alt=""/>
+    </view>
+    <view style="height: 50px;font-size: 16px;line-height: 50px;margin-top: 20px;">获取：初始100个，每观看一个广告获得一个</view>
+    <view >
+      <view style="font-size: 16px;">消耗：1.每次创建或加入房间消耗一枚金币</view>
+    </view>
+    <view style="margin-left: 48px;font-size: 16px;"><text>2.解锁高级功能。比如语音播报、暗黑\n横式等(开发中)</text></view>
+
+    <view style="text-align: center;line-height: 50px;"><text style="color: #ccc;">本小程序承诺不会主动弹出广告</text></view>
+    <button style="background-color: rgb(64, 108, 232);color: #fff;margin-bottom: 20px;margin-top: 10px ;border:none;height: 50px;line-height: 50px;">看广告</button>
+    <button style="background-color: rgb(242, 247, 255);color: black;border:none;height: 50px;line-height: 50px;font-weight: 600;">关闭</button>
+  </view>
+</mp-half-screen-dialog>
+<mp-half-screen-dialog
+bindbuttontap="buttontapGoldDetail"
+bindclose="buttontapGoldDetail"
+  show="{{showGoldDetail }}"
+  maskClosable="{{true}}" 
+  extClass="goldClass detail"
+  mask="{{true}}"
+>
+<view slot="title">金币明细</view>
+<view slot="desc">
+<scroll-view style="height: 330px;" 	scroll-y 	show-scrollbar="{{false}}" 	enable-flex> 
+  
+  <view style="height: 60px;width: 98%;box-shadow: 0 2px 10px rgba(160, 159, 159, 0.5);display: flex;justify-content: space-between;align-items: center;border-radius: 10px;margin: auto;margin-bottom: 10px;margin-top: 10px;">
+  <view>
+  <text style="font-size: 16px;padding-left: 10px;font-weight: 600;">系统赠送\n</text>
+  <text style="padding-left: 10px;color: #ccc;">2023/233/23</text>
+  </view>
+  <view style="font-size: 26px;font-weight: 600;padding-right: 10px;color: rgb(64, 108, 232);">+10</view>
+  </view>
+
+  
+</scroll-view>
+
+</view>
+</mp-half-screen-dialog>
+
+<!-- history-record -->
+<mp-half-screen-dialog
+bindbuttontap="buttontap"
+  show="{{showHistoryRecord}}"
+  maskClosable="{{true}}" 
+>
+  <view slot="title">历史记录   
+    <text style="position: absolute;right: 0px;top: 21px;color:rgb(64, 108, 232);" bindtap="getGoldDetail">删除</text>
+  </view>
+  <view slot="desc" style="height: 650rpx;">x</view>
+</mp-half-screen-dialog>
+</view>
